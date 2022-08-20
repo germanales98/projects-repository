@@ -188,3 +188,11 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.form-signin {
+  width: 100%;
+  max-width: 300px;
+  max-height: 200px;
+  padding: 20px;
+  margin: auto;
+}
