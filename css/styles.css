@@ -196,3 +196,102 @@ a.custom-card:hover {
   padding: 20px;
   margin: auto;
 }
+
+#user-log {
+  display: flex;
+}
+
+p#nameUser {
+  color: white;
+  font-style: oblique;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+#imgLogin {
+  display: inline-flex;
+  margin-left: 15px;
+  width: 200px;
+
+}
+
+#buscador {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+#search {
+  margin-left: 10px;
+  width: 50%
+}
+
+#first-img {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#second-img {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#third-img {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#quarter-img {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+i {
+  color: black;
+}
+
+.rating {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.rating li {
+  list-style-type: none
+}
+
+.rating-item {
+  border: 1px solid #fff;
+  cursor: pointer;
+  font-size: 2em;
+  color: orange;
+}
+
+/* initial: make all stars full */
+.rating-item::before {
+  content: "\2605";
+}
+
+/* make until the clicked star (the rest) empty */
+.rating-item.active~.rating-item::before {
+  content: "\2606";
+}
+
+/* on hover make all full */
+.rating:hover .rating-item::before {
+  content: "\2605";
+}
+
+/* make until the hovered (the rest) empty */
+.rating-item:hover~.rating-item::before {
+  content: "\2606";
+}

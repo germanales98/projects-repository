@@ -30,18 +30,69 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-          </li>
+          <div id="user-log">
+            <p id="nameUser"></p>
+            <li class="nav-item">
+              <!-- Creacion del boton "Cerrar Sesión" a modo de prueba -->
+              <button id="closeSession" class="btn-danger btn-sm" type="submit">Cerrar Sesión</button>
+            </li>
+          </div>
         </ul>
       </div>
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+    <div class="row">
+      <div class="list-group" id="prod-info-container">
       </div>
-    </div>
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div id="carousel-img" class="carousel-inner">
+        </div>
+        <button class="carousel-control-prev btn btn-outline-light" type="button"
+          data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span aria-hidden="true"><i class="fas fa-backward"></i></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next btn btn-outline-light" type="button"
+          data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span aria-hidden="true"><i id="next" class="fas fa-forward"></i></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="text-start p-5">
+        <hr class="mb-4">
+        <h4>Comentarios</h4>
+        <ul id="comment-list" class="list-group">
+        </ul>
+      </div>
+      <div class="text-start p-5">
+        <hr class="mb-4">
+        <form id="send-comment">
+          <h4>Comentar</h4>
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <label for="comment-opinion">Tu opinión:</label>
+              <textarea style="width: 500px; height: 200px;" name="comment-opinion" class="form-control"
+                id="opinion"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <label>Tu puntuación:
+                <ul class="rating">
+                  <li class="rating-item" data-rate="1"></li>
+                  <li class="rating-item" data-rate="2"></li>
+                  <li class="rating-item" data-rate="3"></li>
+                  <li class="rating-item" data-rate="4"></li>
+                  <li class="rating-item" data-rate="5"></li>
+                </ul>
+              </label>
+              <hr class="mb-4">
+              <button class="btn btn-primary btn-lg" type="submit">Enviar</button>
+            </div>
+          </div>
+        </form>
+      </div>
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -64,6 +115,9 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

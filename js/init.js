@@ -16,7 +16,6 @@ function login() {
     window.location = "login.html"
   }
 }
-
 login();
 
 let showSpinner = function () {

@@ -26,29 +26,20 @@
     <form id="content-form">
       <img src="img/login.png" width="100%">
       <h4 class="text-center"><b>Inicio de sesión</b></h4>
-
       <div class="container d-flex">
         <input type="email" class="mb-3 form-control" placeholder="Email" name="email" id="floatingInput">
         <label for="floatingInput"></label>
       </div>
-
       <div class="container d-flex">
         <input type="password" class="mb-3 form-control" placeholder="Contraseña" name="contraseña"
           id="floatingPassword">
         <label for="floatingPassword"></label>
       </div>
-
       <button class="mb-3 btn btn-primary d-block mx-auto" type="submit">Ingresar</button>
-
-      <!-- Boton de Google para acceder -->
-      <div id="g_id_onload" data-client_id="968041410715-t6t7dfoghms8c1mek0feqjjv8cfg8sp9.apps.googleusercontent.com">
-      </div>
-      <div id="buttonGoogle" class="g_id_signin" data-type="standard" data-theme="filled_blue" data-shape="pill"
-        data-logo_alignment="center"></div>
-
       <div id="alertMessage">
       </div>
     </form>
+    <button class="btn btn-light" id="login"><img id="imgLogin" src="img/google-button.png"></button>
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -60,7 +51,58 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-  <script src="js/login.js"></script>
+  <script src="js/login.js" ></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCHwovGRIGCa8MfXn0qBBj-manEu5IjeTQ",
+      authDomain: "prueba0304-2782d.firebaseapp.com",
+      projectId: "prueba0304-2782d",
+      storageBucket: "prueba0304-2782d.appspot.com",
+      messagingSenderId: "424742444502",
+      appId: "1:424742444502:web:30fcd5f0e5ef132e10d877"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider(app);
+
+    login.addEventListener('click', (e) => {
+
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          // This gives you a Google Access Token. You can use it to access the Google API.
+          const credential = GoogleAuthProvider.credentialFromResult(result);
+          const token = credential.accessToken;
+          // The signed-in user info.
+          const user = result.user;
+          sessionStorage.setItem("user", "true");
+          localStorage.setItem("userGoogle", user.displayName);
+          window.location.href = "index.html"
+          // ...
+        }).catch((error) => {
+          // Handle Errors here.
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // The email of the user's account used.
+          const email = error.customData.email;
+          // The AuthCredential type that was used.
+          const credential = GoogleAuthProvider.credentialFromError(error);
+          alert(errorMessage);
+          // ...
+        });
+    });
+
+  </script>
+
 </body>
 
 </html>

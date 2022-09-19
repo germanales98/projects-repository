@@ -30,8 +30,13 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-          </li>
+          <div id="user-log">
+            <p id="nameUser"></p>
+            <li class="nav-item">
+              <!-- Creacion del boton "Cerrar Sesión" a modo de prueba -->
+              <button id="closeSession" class="btn-danger btn-sm" type="submit">Cerrar Sesión</button>
+            </li>
+          </div>
         </ul>
       </div>
     </div>
@@ -40,7 +45,44 @@
     <div class="text-center p-4">
       <!-- Aquí se realizo el cambio de la "Funcionalidad en desarrollo por el titulo de la pagina y una breve descripción de la misma." -->
       <h2>Productos</h2>
-      <p class="lead">Verás aquí todas los productos de la categoría <b>Autos</b></p>
+      <p id="catName" class="lead">Verás aquí todas los productos de la categoría</p>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col text-end">
+          <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
+            <button class="btn btn-light" id="sortAsc"><i class="fas fa-sort-amount-down-alt"></i>$</button>
+            <button class="btn btn-light" id="sortDesc"><i class="fas fa-sort-amount-down mr-1"></i>$</button>
+            <button class="btn btn-light" id="sortByRel"><i class="fas fa-sort-amount-down mr-1"></i>Rel.</button>
+          </div>
+        </div>
+      </div>
+      <div class="row" id="row-div">
+        <div class="col text-start" id="buscador">
+          <p class="font-weight-normal text-end my-2" style="font-weight: bold"><i class="fas fa-search"></i>
+          </p>
+          <input class="form-control" type="text"  placeholder="Buscar productos..." name="searchProd" id="search">
+        </div>
+        <div class="col-lg-6 container flex-end">
+          <div class="row container p-0 m-0">
+            <div class="col">
+              <p class="font-weight-normal text-end my-2">Precio</p>
+            </div>
+            <div class="col">
+              <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
+            </div>
+            <div class="col">
+              <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
+            </div>
+            <div class="col-3 p-0">
+              <div class="btn-group" role="group">
+                <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
+                <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="row">
       <!-- Se agrego un id="prod-list-container" al div, para luego mostrar la lista de los productos. -->
